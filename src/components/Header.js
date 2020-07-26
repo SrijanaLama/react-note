@@ -7,7 +7,7 @@ function Header() {
     return (
         <div >
             <div className="header">
-                <h3 >React Note App </h3>
+                <h3 >React Note  </h3>
             </div>
 
         </div>
