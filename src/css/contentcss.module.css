@@ -1,0 +1,23 @@
+
+.content {
+    height: 550px;
+    margin: 10px;    
+}
+
+.subject {
+    width: 100%;
+    padding:  12px 20px;
+    border-radius: 4px;
+    margin: 8px 0;
+    box-sizing : border-box;
+}
+
+.description {
+    width: 100%;
+    padding:  12px 20px;
+    border-radius: 4px;
+    box-sizing : border-box;
+    margin: 8px 0;
+    height: 200px; 
+  
+}
