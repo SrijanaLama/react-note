@@ -1,5 +1,7 @@
 body {
   margin: 0;
+ overflow: hidden;
+ 
 }
 
 .header {
@@ -45,6 +47,12 @@ body {
 .btn:hover {
   color: black;
 }
+.btn.focus, .btn:focus {
+  outline: 0;
+  box-shadow: none!important;
+}
+
+
 
 
 .note {
@@ -75,4 +83,8 @@ body {
 }
 .deleteBtn:hover {
   color:red;
+}
+.deleteBtn.focus, .deleteBtn:focus {
+  outline: 0;
+  box-shadow: none!important;
 }
