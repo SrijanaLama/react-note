@@ -13,7 +13,7 @@ const ContentManage=props=>{
             onChange={props.updateValue} 
             value={props.sub} 
             className ={styles.subject}
-            autoComplete
+            autoComplete="off"
         
          />
         <label className="labelCss">Description</label>

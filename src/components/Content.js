@@ -7,24 +7,20 @@ import Note from "./Note"
 class Content extends React.Component {
     state = {
         id: 0,
-        tempId: 0,
+        tempId: " ",
         subject: " ",
         description: " ",
         myNoteArray: []
     }
     handleUpdate = (inputid) =>{
     let  myNote= JSON.parse(sessionStorage.getItem("myNote"));
-    this.setState(prevState =>({
-        tempId : prevState.id,
-        id: Number(inputid),
+    this.setState({
+        tempId : inputid,
         subject:  myNote[inputid].subject,
         description: myNote[inputid].description
-    }))
-    
-   
+    })
 
 }
-
     handleChange = (event) => {
         const { name, value } = event.target
         this.setState(
@@ -38,21 +34,25 @@ class Content extends React.Component {
         
         const { value } = event.target
         if (value === "add") {
-            //check if id already existed
-            if(this.state.id < this.state.myNoteArray.length){
-                  this.setState(prevState =>({
-                    myNoteArray: prevState.myNoteArray.map((note, index) =>
-                    index === prevState.id ? { ...note, 'subject': prevState.subject,
-                    'description': prevState.description } : note,
-                 ),
-                    id : prevState.tempId,
-                    tempId: 0,
-                    subject:  "",
-                    description: ""
-                }))
-
+            if(this.state.subject === " " || this.state.description === " "){
+                 alert("field cannot be empty");
             }
             else{
+                    //check if id already existed
+                if((this.state.tempId !== " ")&&(Number(this.state.tempId) < this.state.myNoteArray.length)  ){
+                    this.setState(prevState =>({
+                      myNoteArray: prevState.myNoteArray.map((note, index) =>
+                      index === Number(prevState.tempId) ? { ...note, 'subject': prevState.subject,
+                      'description': prevState.description } : note,
+                   ),
+                      id : prevState.id,
+                      tempId: 0,
+                      subject:  "",
+                      description: ""
+                  }))
+                  alert("Updated" ); 
+              }
+              else{
                 this.setState(prevState => ({
                     myNoteArray: [...prevState.myNoteArray, {
                         'id': prevState.id,
@@ -64,18 +64,22 @@ class Content extends React.Component {
                     description: " "
     
                 }))
-
+                alert("Added" ); 
             }
-                    
+
+            }           
+                   
         }
         //case for clear
         else {
-            this.setState({
+            this.setState(prevState =>({
+                id: prevState.id ,
+                tempId : " ",
                 subject: " ",
                 description: " "
-            })
+            }))
         }
-          alert("Added" );
+          
     }
 
     render() {

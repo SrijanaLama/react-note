@@ -10,6 +10,7 @@
     border-radius: 4px;
     margin: 8px 0;
     box-sizing : border-box;
+    font-size: 20px;
 }
 
 .description {
@@ -18,6 +19,7 @@
     border-radius: 4px;
     box-sizing : border-box;
     margin: 8px 0;
+    font-size: 18px;
     height: 200px; 
   
 }

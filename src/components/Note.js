@@ -22,11 +22,11 @@ const Note = props => {
                     return (
                         <div key={note.id} id={note.id} className="noteList" onClick={handleClick}>
                             <li className="list">
-                                <h1 hidden>  {note.id} </h1>
-                                <h3 className="subNote"> {note.subject}</h3>
+                                <h4 className="subNote"> {note.subject}</h4>
+                                <hr></hr>
                             </li>
                             <button id={note.id} onClick={handleDelete} className="deleteBtn"> <FaTrash /> </button>
-                            <hr />
+                            
                         </div>
                     )
                 })
